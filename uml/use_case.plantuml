@@ -1,0 +1,19 @@
+@startuml
+left to right direction
+skinparam actorStyle awesome
+:User:
+:Admin:
+package Use {
+    User --> (Set max time)
+    User --> (set budget)
+    User --> (Ask available path)
+    User --> (Set destination)
+    (Ask available path) .> (Set destination) : include
+}
+
+Admin --> (CRUD cities)
+Admin --> (CRUD groups)
+Admin --> (Authenticate as Admin)
+(CRUD cities) .> (Authenticate as Admin) : include
+(CRUD groups) .> (Authenticate as Admin) : include
+@enduml
