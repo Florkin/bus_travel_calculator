@@ -1,0 +1,24 @@
+@startuml
+class Path {
+    departure : City
+    arrival : City
+    stops : CityCollection
+}
+class City {
+    name : string
+    groups: GroupCollection
+    groupsOrder: GroupOrderCollection
+}
+class Group {
+    cities : CityCollection
+}
+class GroupOrder {
+    group : Group
+    city : City
+    order : integer
+}
+Group "*" -- "*" City
+Path "*" -- "*" City
+GroupOrder "*" -- "1" Group
+GroupOrder "*" -- "1" City
+@enduml
